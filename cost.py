@@ -17,10 +17,11 @@ with get_openai_callback() as cb:
     model(
         [
             HumanMessage(
-                content="Translate this sentence from English to French. I love programming."
+                content="When was PTC founded ?"
             )
         ]
     )
 
+print(f"Output: {cb}")
 print(f"Total Cost (USD): ${format(cb.total_cost, '.6f')}")
 
