@@ -2,6 +2,10 @@ import json
 import requests
 import yfinance as yf
 from tenacity import retry, wait_random_exponential, stop_after_attempt
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 GPT_MODEL = "gpt-3.5-turbo"
 
@@ -15,7 +19,7 @@ def get_stock_price(tickerSymbol):
 def chat_completion_request(messages, functions=None, function_call=None, model=GPT_MODEL):
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer " + os.getenv('OPENAI_API_KEY'),
     }
     json_data = {"model": model, "messages": messages}
     if functions is not None:
