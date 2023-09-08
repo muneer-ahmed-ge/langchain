@@ -1,4 +1,5 @@
 from langchain.chat_models import AzureChatOpenAI
+from langchain.schema import SystemMessage
 from langchain.schema import HumanMessage
 from langchain.callbacks import get_openai_callback
 
@@ -16,6 +17,9 @@ model = AzureChatOpenAI(
 with get_openai_callback() as cb:
     model(
         [
+            SystemMessage(
+                content="You are a helpful assistant"
+            ),
             HumanMessage(
                 content="When was PTC founded ?"
             )
