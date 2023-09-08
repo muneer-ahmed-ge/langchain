@@ -15,7 +15,7 @@ def get_stock_price(tickerSymbol):
 def chat_completion_request(messages, functions=None, function_call=None, model=GPT_MODEL):
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer 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",
     }
     json_data = {"model": model, "messages": messages}
     if functions is not None:
@@ -28,8 +28,8 @@ def chat_completion_request(messages, functions=None, function_call=None, model=
             headers=headers,
             json=json_data,
         )
-        #print("HTTP Request = %s" % json.dumps(json_data, indent=1))
-        #print("HTTP Response = %s %s" % (response, json.dumps(response.json(), indent=1)))
+        print("HTTP Request = %s" % json.dumps(json_data, indent=1))
+        print("HTTP Response = %s %s" % (response, json.dumps(response.json(), indent=1)))
         return response
     except Exception as e:
         print("Unable to generate ChatCompletion response")

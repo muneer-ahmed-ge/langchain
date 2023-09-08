@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
 from langchain.chat_models import AzureChatOpenAI
 from langchain.schema import SystemMessage
 from langchain.schema import HumanMessage
 from langchain.callbacks import get_openai_callback
+
+load_dotenv()
 
 BASE_URL = "https://servicemax-aig-project.openai.azure.com"
 API_KEY = "ee8c4e7057e944c0a6773c4a04df3736"
